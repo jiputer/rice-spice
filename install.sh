@@ -10,6 +10,7 @@ declare -A CONFIGS=(
   ["home/hyprland"]="~/.config/hypr"
   ["home/waybar"]="~/.config/waybar"
   ["home/fuzzel"]="~/.config/fuzzel"
+  ["home/kitty"]="~/.config/kitty"
 )
 
 # Wallpapers

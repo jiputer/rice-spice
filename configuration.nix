@@ -118,8 +118,15 @@
      git
      pywal
      jq
+     brightnessctl
+     nwg-look
+     python27
+     python310
+     neovim
   ];
-  
+  nixpkgs.config.permittedInsecurePackages = [
+     "python-2.7.18.8"
+  ];
   services.displayManager.sddm.enable = true;
   services.displayManager.defaultSession = "hyprland";
   services.dbus.enable = true; #for wayland  
@@ -131,6 +138,9 @@
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
+boot.extraModprobeConfig = ''
+  options asus_nb_wmi wapf=4
+'';
 
 
   # Some programs need SUID wrappers, can be configured further or are

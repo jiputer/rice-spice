@@ -101,16 +101,16 @@
         "max-length": 10
     },
     "custom/launcher":{
-        "format": " ",
-        "on-click": "rofi -show drun",
-        "on-click-right": "killall rofi",
+        "format": "  ",
+        "on-click": "fuzzel --dmenu",
+        "on-click-right": "killall fuzzel",
         "tooltip": false,
     },
     "custom/power":{
-        "format": "⏻ ",
+        "format": "⏻",
         "tooltip": false,
-        "on-click": "bash ~/.config/rofi/powermenu.sh",
-        "on-click-right": "killall rofi",
+        "on-click": "bash ~/.config/fuzzel/power-menu.sh",
+        "on-click-right": "killall fuzzel",
     },
     "clock": {
         "format": "  {:%A - %B %d, %Y - %R}",

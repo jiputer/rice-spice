@@ -13,7 +13,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -105,7 +105,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
      hyprland
      xwayland
@@ -123,24 +123,38 @@
      python27
      python310
      neovim
+     capitaine-cursors
+     bash-completion  # Smarter autocomplete
+     fzf               # Fuzzy finder
+     zoxide            # Directory jumping
+     navi              # Cheatsheet tool
+     starship          # Fancy fast prompt
+     blesh
   ];
   nixpkgs.config.permittedInsecurePackages = [
      "python-2.7.18.8"
   ];
-  services.displayManager.sddm.enable = true;
+
+  #environment.systemPackages = [ pkgs.blesh ];
+  programs.bash.interactiveShellInit = ''
+    if [[ -f "${pkgs.blesh}/share/blesh/ble.sh" ]]; then
+        source "${pkgs.blesh}/share/blesh/ble.sh" --noattach
+    fi
+  '';   
   services.displayManager.defaultSession = "hyprland";
   services.dbus.enable = true; #for wayland  
   programs.xwayland.enable = true; #xwayland compatibility
-  programs.hyprland.enable = true;
-
+  programs.hyprland.enable = true; 
+  services.displayManager.sddm = { 
+      enable = true;
+      #theme.cursorTheme = "capitaine-cursors";
+  };
   # Fonts
   fonts.packages = with pkgs; [
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
-boot.extraModprobeConfig = ''
-  options asus_nb_wmi wapf=4
-'';
+ boot.extraModprobeConfig = "options asus_nb_wmi wapf=4";
 
 
   # Some programs need SUID wrappers, can be configured further or are

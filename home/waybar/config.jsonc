@@ -2,7 +2,7 @@
 	"layer": "bottom",
 	"modules-left": ["custom/launcher","cpu","memory","disk","hyprland/workspaces"],
 	"modules-center": ["clock"],
-	"modules-right": ["tray", "cava", "hyprland/language","backlight","pulseaudio","battery","custom/power"],
+	"modules-right": ["tray", "cava","hyprland/language","backlight","pulseaudio", "network", "battery","custom/power"],
 	
 	"pulseaudio": {
 		"tooltip": false,
@@ -30,7 +30,7 @@
             "waves": true,
             "noise_reduction": 0.77,
             "input_delay": 0,
-            "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+            "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ]
              },
 
     "custom/keybinds": {
@@ -52,6 +52,7 @@
             "critical": 15
         },
         "format": "{icon}  {capacity}%",
+	"format-charging": "\uf583 {capacity}%",
         "format-icons": ["", "", "", "", ""],
         "max-length": 25
     },
@@ -88,7 +89,7 @@
 
     "hyprland/language": {
         "format": "  {1}",
-        "tooltip": false,
+        "tooltip": false
     },
     "cpu": {
         "interval": 15,
@@ -104,17 +105,17 @@
         "format": "  ",
         "on-click": "fuzzel --dmenu",
         "on-click-right": "killall fuzzel",
-        "tooltip": false,
+        "tooltip": false
     },
     "custom/power":{
         "format": "⏻",
         "tooltip": false,
         "on-click": "bash ~/.config/fuzzel/power-menu.sh",
-        "on-click-right": "killall fuzzel",
+        "on-click-right": "killall fuzzel"
     },
     "clock": {
         "format": "  {:%A - %B %d, %Y - %R}",
-        "tooltip": false,
+        "tooltip": false
     },
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -130,16 +131,17 @@
             "default": ""
     },
     "tray": {
-    "icon-size": 28,
+    "icon-size": 30,
     "spacing": 16
 }
     },
     "network": {
-        "interface": "enp3s0",
+        "interface": "wlp2s0",
         "format-wifi": "󰘊 {essid}({signalStrength}%)",
         "format-ethernet": "  {ipaddr}/{cidr}",
         "format-disconnected": "disconnected",
         "tooltip": false,
         "max-length": 50,
+	"on-click": "kitty --class floating_nmtui -o initial_window_width=40c -o initial_window_height=20c nmtui"
     }
 }

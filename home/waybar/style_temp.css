@@ -10,7 +10,7 @@
 window#waybar {
     background: transparent;
 }
-
+/*
 #network {
     margin-top: 10px;
     margin-left: 8px;
@@ -29,7 +29,7 @@ window#waybar {
     color: @background;
     background: @color1;
 }
-
+*/
 #custom-keybinds {
     margin-top: 10px;
     margin-left: 8px;
@@ -78,7 +78,7 @@ window#waybar {
 
 }
 
-#battery, #backlight {
+#battery, #backlight, #network {
    
     margin-top: 15px;
     
@@ -87,14 +87,13 @@ window#waybar {
     padding-right: 10px;
     margin-bottom: 0px;
     border-radius: 10px;
-    background: @foreground;
+    background: @color6;
     color: @background;
-    border-bottom: 3px solid @color1;
     transition: 0.3s;
 }
 
-#battery:hover, #backlight:hover {
-    color: @color1;
+#battery:hover, #backlight:hover, #network:hover {
+    color: @color6;
     background: @background;
 }
 
@@ -144,15 +143,16 @@ window#waybar {
 #workspaces {
     margin-top: 10px;
     margin-left: 15px;
-    padding-right: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
     background: @color8;
-    color: @color7;
+    color: @color1;
     border-bottom: 3px solid @color6;
     transition: 0.3s;
 }
 
 #workspaces button {
-    color: @color7;
+    color: @color1;
     transition: 0.3s;
 }
 #workspaces button:hover {

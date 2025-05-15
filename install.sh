@@ -1,8 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-#!/bin/bash
-
-echo " Uncle Ben's Hyprland Installer "
+echo
+echo "🛠️  Uncle Ben's Hyprland Installer 🛠️"
 echo
 
 # Define mappings: source => target
@@ -11,11 +10,14 @@ declare -A CONFIGS=(
   ["home/waybar"]="~/.config/waybar"
   ["home/fuzzel"]="~/.config/fuzzel"
   ["home/kitty"]="~/.config/kitty"
+  ["home/.bashrc"]="~/.bashrc"
+  ["home/.bash_profile"]="~/.bash_profile"
+  ["home/starship.toml"]="~/.config/starship.toml"
 )
 
 # Wallpapers
 WALLPAPERS_SRC="wallpapers"
-WALLPAPERS_DEST="~/Pictures/wallpapers"
+WALLPAPERS_DEST="$HOME/Pictures/wallpapers"
 
 # Function to create symlink
 link_config() {
@@ -25,25 +27,29 @@ link_config() {
   src="$(realpath "$src")"
   dest="${dest/#\~/$HOME}" # expand ~ manually
 
-  echo "Linking $src → $dest"
+  echo "🔗 Linking $src → $dest"
 
   mkdir -p "$(dirname "$dest")"
 
-  if [ -e "$dest" ]; then
-    read -p "⚠️  $dest exists. Overwrite? (y/n) " choice
+  if [ -e "$dest" ] || [ -L "$dest" ]; then
+    read -p "⚠️  $dest exists. Backup and overwrite? (y/n) " choice
     if [ "$choice" != "y" ]; then
-      echo " Skipping $dest"
+      echo "❌ Skipping $dest"
       return
     else
-      rm -rf "$dest"
+      backup="${dest}.backup-$(date +%s)"
+      mv "$dest" "$backup"
+      echo "📦 Backed up old file to $backup"
     fi
   fi
 
   ln -s "$src" "$dest"
-  echo " Linked $dest"
+  echo "✅ Linked $dest"
 }
 
 # Link all configs
+echo
+echo "🔗 Setting up configs..."
 for src in "${!CONFIGS[@]}"; do
   dest=${CONFIGS[$src]}
   link_config "$src" "$dest"
@@ -51,15 +57,15 @@ done
 
 # Copy wallpapers
 echo
-echo " Copying wallpapers..."
+echo "🖼️  Copying wallpapers..."
 
 WALLPAPERS_DEST="${WALLPAPERS_DEST/#\~/$HOME}" # expand ~ manually
 mkdir -p "$WALLPAPERS_DEST"
-cp -r $WALLPAPERS_SRC/* "$WALLPAPERS_DEST/"
+cp -r "$WALLPAPERS_SRC/"* "$WALLPAPERS_DEST/"
 
-echo " Wallpapers copied to $WALLPAPERS_DEST"
+echo "✅ Wallpapers copied to $WALLPAPERS_DEST"
 
+# Done
 echo
-echo " All done! Reload Hyprland (Super+Shift+R) to apply changes!"
-
+echo "🎉 All done! Reload Hyprland (Super+Shift+R) to apply changes!"
 

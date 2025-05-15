@@ -130,6 +130,7 @@
      navi              # Cheatsheet tool
      starship          # Fancy fast prompt
      blesh
+     asusctl
   ];
   nixpkgs.config.permittedInsecurePackages = [
      "python-2.7.18.8"
@@ -154,9 +155,13 @@
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
- boot.extraModprobeConfig = "options asus_nb_wmi wapf=4";
-
-
+  boot.extraModprobeConfig = "options asus_nb_wmi wapf=4";
+  
+  
+  services.asusd = {
+    enable = true;
+    enableUserService = true;
+  };  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

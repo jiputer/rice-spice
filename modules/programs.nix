@@ -5,6 +5,7 @@
     wget
     hyprland
     xwayland
+    fastfetch
     kitty
     waybar
     sddm
@@ -20,7 +21,7 @@
     python310
     neovim
     capitaine-cursors
-    bash-completion
+    #bash-completion
     fzf
     zoxide
     navi
@@ -30,6 +31,49 @@
     grim
     slurp
     wl-clipboard
+    gcc
+    gnumake
+    cmake
+    pkg-config
+    libGL
+    libGLU
+    freeglut
+    SDL2
+    xorg.libX11
+    xorg.libXrandr
+    xorg.libXext
+    xorg.libXxf86vm
+    linuxHeaders
+    v4l-utils
+    ffmpeg
+    spotify    
+    cava
+    
+    # Fabric packages
+    # fabric
+    # fabric-cli
+    #brightnessctl
+    #cava
+    cliphist
+    gnome-bluetooth
+    gobject-introspection
+    gpu-screen-recorder
+    grimblast
+    hypridle
+    hyprlock
+    hyprpicker
+    hyprshot
+    hyprsunset
+    imagemagick
+    libnotify
+    noto-fonts-emoji
+    nvtop
+    playerctl
+    swappy
+    #swww
+    tesseract
+    tmux
+    uwsm 
   ];
 
  # programs.bash.interactiveShellInit = ''

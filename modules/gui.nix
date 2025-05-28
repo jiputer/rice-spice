@@ -31,9 +31,8 @@
     # theme.cursorTheme = "capitaine-cursors";
   };
 
-  # Fonts
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerdfonts
   ];
 
   # Firefox

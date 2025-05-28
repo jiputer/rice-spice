@@ -19,10 +19,13 @@
   services.dbus.enable = true;
 
   # ASUS laptop support
-  boot.extraModprobeConfig = "options asus_nb_wmi wapf=4";
+  boot.extraModprobeConfig = ''options asus_nb_wmi wapf=4'';
   services.asusd = {
     enable = true;
     enableUserService = true;
   };
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 }
 

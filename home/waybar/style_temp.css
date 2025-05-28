@@ -32,7 +32,7 @@ window#waybar {
 */
 #custom-keybinds {
     margin-top: 10px;
-    margin-left: 8px;
+    margin-left: 10px;
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: 0px;
@@ -70,7 +70,7 @@ window#waybar {
 
 #cava:hover {
     color: @background;
-    background: @color1;
+    background: @color6;
 } 
 
 #custom-power{
@@ -81,7 +81,6 @@ window#waybar {
 #battery, #backlight, #network {
    
     margin-top: 15px;
-    
     margin-left: 10px;  
     padding-left: 10px;
     padding-right: 10px;
@@ -115,7 +114,7 @@ window#waybar {
     padding-right: 15px;
     margin-bottom: 0px;
     border-radius: 10px;
-    background: @color8;
+    background: @color6;
     color: @foreground;
     border-bottom: 3px solid @color1;
     transition: 0.3s;
@@ -126,8 +125,8 @@ window#waybar {
     border-color: @color1;
 }
 #idle_inhibitor.activated:hover, #idle_inhibitor.deactivated:hover {
-    background: @color1;
-    color: @background;
+    background: @background;
+    color: @color6;
 }
 
 #network.disconnected {
@@ -152,7 +151,8 @@ window#waybar {
 }
 
 #workspaces button {
-    color: @color1;
+    
+    color: @color6;
     transition: 0.3s;
 }
 #workspaces button:hover {
@@ -164,7 +164,7 @@ window#waybar {
 
 #tray {
     margin-top: 10px;
-    margin-left: 15px;
+    margin-left: 10px;
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: 0px;
@@ -177,7 +177,7 @@ window#waybar {
 
 #tray menu {
     margin-top: 10px;
-    margin-left: 8px;
+    margin-left: 10px;
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: 0px;

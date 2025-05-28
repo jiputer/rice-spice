@@ -1,5 +1,10 @@
 # ~/.bashrc
 
+
+export XCURSOR_THEME="Capitaine Cursors"
+export XCURSOR_SIZE=24
+
+
 ######################
 # Bash Completion
 ######################

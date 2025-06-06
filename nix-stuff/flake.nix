@@ -10,41 +10,49 @@
     ags.inputs.nixpkgs.follows = "nixpkgs";
     astal.url = "github:Aylur/astal";
     astal.inputs.nixpkgs.follows = "nixpkgs";
+
+    nvf.url = "github:notashelf/nvf";
+    #nvf.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, astal, ags, ... }: 
+  outputs = { self, nixpkgs, home-manager, astal, ags, nvf, ... }: 
    let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
    in
 
   {
+   packages.${system}.nixos = (nvf.lib.neovimConfiguration {
+	inherit pkgs;
+	modules = [./nvf-configuration.nix];
+   }).neovim;
 
-   nixosConfigurations.ricespice = nixpkgs.lib.nixosSystem {
+   nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       modules = [
-        ./configuration.nix
-        ./system.nix
-        ./user.nix
-        ./networking.nix
-        ./programs.nix
-        ./services.nix
-        ./gui.nix
-        ./hardware-configuration.nix
+        ./modules/configuration.nix
+	# ./modules/nvf-configuration.nix
         # maybe ill use home-manager, we'll see..
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.jiputer = import ./modules/home-manager.nix;
-        }
+        # home-manager.nixosModules.home-manager
+        #{
+        #  home-manager.useGlobalPkgs = true;
+        #  home-manager.useUserPackages = true;
+        #  home-manager.users.jiputer = import ./modules/home-manager.nix;
+        #}
+	
+        nvf.nixosModules.default
 	{
-        environment.systemPackages = [
-          astal.packages.${system}.default
-	  ags.packages.${system}.default
-        ];
+        _module.args = {
+            ags = ags.packages.${system}.default;
+            astal = astal.packages.${system}.default;
+          };
         }
+	#{
+        #environment.systemPackages = [
+        #  astal.packages.${system}.default
+	# ags.packages.${system}.default
+        #];
+        #};
       ];
     };
   };
 }
-

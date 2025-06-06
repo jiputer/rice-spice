@@ -14,6 +14,7 @@
     ./services.nix
     ./programs.nix
     #<home-manager/nixos>
+    #./nvf-configuration.nix
   ];
 
   system.stateVersion = "24.11"; # Match your install version

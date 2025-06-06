@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ags, astal, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -57,6 +57,9 @@
     # fabric-cli
     #brightnessctl
     #cava
+    
+    astal
+    ags
     gdm
     lightdm
     cliphist

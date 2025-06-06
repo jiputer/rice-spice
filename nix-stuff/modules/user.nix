@@ -7,10 +7,10 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ ];
   };
-
+  #services.displayManager.autoLogin
   # Auto-login setup
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "jiputer";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "jiputer";
 
   # Workaround for GNOME autologin
   systemd.services."getty@tty1".enable = false;

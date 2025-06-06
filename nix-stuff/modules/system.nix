@@ -4,7 +4,7 @@
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  
   # Locale and time
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";

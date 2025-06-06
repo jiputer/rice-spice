@@ -15,9 +15,32 @@
   outputs = { self, nixpkgs, home-manager, astal, ags, ... }: 
    let
       system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
    in
 
   {
+
+   packages.${system}. default = pkgs.stdenvNoCC.mkDerivation rec {
+      name = "my-shell";
+      src = ./.;
+
+      nativeBuildInputs = [
+        ags.packages.${system}.default
+        pkgs.wrapGAppsHook
+        pkgs.gobject-introspection
+      ];
+
+      buildInputs = with astal.packages.${system}; [
+        astal3
+        io
+        # any other package
+      ];
+
+      installPhase = ''
+        mkdir -p $out/bin
+        ags bundle app.ts $out/bin/${name}
+      '';
+    };
    nixosConfigurations.ricespice = nixpkgs.lib.nixosSystem {
       modules = [
         ./configuration.nix

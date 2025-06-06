@@ -10,7 +10,8 @@ export XCURSOR_SIZE=24
 ######################
 # Enable ble.sh for live autosuggestions
 # Blesh setup
-BLE_SH_PATH="/nix/store/g1l1lwwqfwhc8hmp62m3h4dka22fyw48-blesh-0.4.0-devel3/share/blesh/ble.sh"
+BLE_SH_PATH="$(nix eval --raw nixpkgs#blesh)/share/blesh/ble.sh"
+
 if [[ -f "$BLE_SH_PATH" && $- == *i* ]]; then
         # echo "Sourcing ble.sh"
 	export BLECON_CSI_PROMPT_MARK=1

@@ -20,11 +20,10 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
    in
-
   {
    packages.${system}.nixos = (nvf.lib.neovimConfiguration {
 	inherit pkgs;
-	modules = [./nvf-configuration.nix];
+	modules = [./modules/nvf-configuration.nix];
    }).neovim;
 
    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {

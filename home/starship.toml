@@ -1,11 +1,14 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+
+
+
 format = """
-[](color_orange)\
+[](color_yellow)\
 $username\
-[](bg:color_yellow fg:color_orange)\
+[](bg:color_blue fg:color_yellow)\
 $directory\
-[](fg:color_yellow bg:color_aqua)\
+[](fg:color_blue bg:color_aqua)\
 $git_branch\
 [](fg:color_aqua bg:color_bg3)\
 $git_status\
@@ -42,8 +45,10 @@ color_aqua = '#689d6a'
 color_green = '#98971a'
 color_orange = '#d65d0e'
 color_purple = '#b16286'
-color_red = '#cc241d'
+color_red = '#fb4934'
 color_yellow = '#d79921'
+
+
 
 [os]
 disabled = false
@@ -70,16 +75,16 @@ EndeavourOS = ""
 CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
-RedHatEnterprise = "󱄛"
+2RedHatEnterprise = "󱄛"
 
 [username]
 show_always = true
-style_user = "bg:color_orange fg:color_fg0"
-style_root = "bg:color_orange fg:color_fg0"
+style_user = "bg:color_yellow fg:color_fg0"
+style_root = "bg:color_yellow fg:color_fg0"
 format = '[ $user ]($style)'
 
 [directory]
-style = "fg:color_fg0 bg:color_yellow"
+style = "fg:color_fg0 bg:color_blue"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -171,3 +176,4 @@ vimcmd_symbol = '[](bold fg:color_green)'
 vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
 vimcmd_replace_symbol = '[](bold fg:color_purple)'
 vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+

@@ -156,4 +156,3 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 # History
 HISTSIZE=5000
 HISTFILESIZE=10000
-

@@ -1,4 +1,4 @@
-ii{
+{
   description = "a lil flake for funsies";
 
   inputs = {
@@ -12,9 +12,13 @@ ii{
     astal.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
-    nixosConfigurations.ricespice = nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, home-manager, astal, ags, ... }: 
+   let
       system = "x86_64-linux";
+   in
+
+  {
+   nixosConfigurations.ricespice = nixpkgs.lib.nixosSystem {
       modules = [
         ./configuration.nix
         ./modules/system.nix
@@ -29,11 +33,12 @@ ii{
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.yourUsername = import ./modules/home-manager.nix;
+          home-manager.users.jiputer = import ./modules/home-manager.nix;
         }
 	{
         environment.systemPackages = [
-          astal.packages.x86_64-linux.default
+          astal.packages.${system}.default
+	  ags.packages.${system}.default
         ];
         }
       ];

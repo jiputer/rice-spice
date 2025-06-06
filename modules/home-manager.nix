@@ -1,14 +1,16 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <home-manager/nixos> ];
+  home.username = "jiputer";
+  home.homeDirectory = "/home/jiputer";
+  home.stateVersion = "23.11";
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
+  programs.zsh.enable = true;
 
-  home-manager.users.jiputer = {
-    home.stateVersion = "24.11";
-    programs.zsh.enable = true;
-  };
+  home.packages = with pkgs; [
+    neovim
+    firefox
+  ];
 }
+
 

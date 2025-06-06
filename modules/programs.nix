@@ -8,7 +8,7 @@
     fastfetch
     kitty
     waybar
-    sddm
+    kdePackages.sddm
     fuzzel
     firefox
     swww
@@ -49,11 +49,16 @@
     spotify    
     cava
     
-    # Fabric packages
+    nerd-fonts.mononoki
+    nerd-fonts.jetbrains-mono
+
+   # Fabric packages
     # fabric
     # fabric-cli
     #brightnessctl
     #cava
+    gdm
+    lightdm
     cliphist
     gnome-bluetooth
     gobject-introspection
@@ -67,7 +72,7 @@
     imagemagick
     libnotify
     noto-fonts-emoji
-    nvtop
+    #nvtop
     playerctl
     swappy
     #swww

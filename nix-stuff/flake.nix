@@ -12,45 +12,33 @@
     astal.inputs.nixpkgs.follows = "nixpkgs";
 
     nvf.url = "github:notashelf/nvf";
-    #nvf.inputs.nixpkgs.follows = "nixpkgs";
+    nvf.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, astal, ags, nvf, ... }: 
    let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      nvfNeovim = (nvf.lib.neovimConfiguration {
+        inherit pkgs;
+        modules = [ ./modules/nvf-configuration.nix ];
+      }).neovim;      
    in
   {
-   packages.${system}.nixos = (nvf.lib.neovimConfiguration {
-	inherit pkgs;
-	modules = [./modules/nvf-configuration.nix];
-   }).neovim;
-
-   nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    
+    packages.${system}.default = nvfNeovim;
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       modules = [
         ./modules/configuration.nix
-	# ./modules/nvf-configuration.nix
-        # maybe ill use home-manager, we'll see..
-        # home-manager.nixosModules.home-manager
-        #{
-        #  home-manager.useGlobalPkgs = true;
-        #  home-manager.useUserPackages = true;
-        #  home-manager.users.jiputer = import ./modules/home-manager.nix;
-        #}
-	
-        nvf.nixosModules.default
-	{
-        _module.args = {
+        ./modules/system.nix
+
+        {
+          _module.args = {
             ags = ags.packages.${system}.default;
             astal = astal.packages.${system}.default;
+            nvfNeovim = nvfNeovim;
           };
         }
-	#{
-        #environment.systemPackages = [
-        #  astal.packages.${system}.default
-	# ags.packages.${system}.default
-        #];
-        #};
       ];
     };
   };

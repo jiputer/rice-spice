@@ -1,4 +1,4 @@
-{ config, pkgs, ags, astal, ... }:
+{ config, pkgs, ags, astal, nvfNeovim, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -17,9 +17,14 @@
     jq
     brightnessctl
     nwg-look
+    
     python27
     python310
+    
+    vim
     neovim
+    nvfNeovim
+
     capitaine-cursors
     #bash-completion
     fzf
@@ -51,13 +56,8 @@
     
     nerd-fonts.mononoki
     nerd-fonts.jetbrains-mono
+     
 
-   # Fabric packages
-    # fabric
-    # fabric-cli
-    #brightnessctl
-    #cava
-    
     astal
     ags
     gdm

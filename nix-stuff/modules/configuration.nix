@@ -17,6 +17,6 @@
     #./nvf-configuration.nix
   ];
 
-  system.stateVersion = "24.11"; # Match your install version
+  system.stateVersion = "25.11"; # Match your install version
 }
 

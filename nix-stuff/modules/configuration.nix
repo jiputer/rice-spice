@@ -17,7 +17,7 @@
     #<home-manager/nixos>
     #./nvf-configuration.nix
   ];
-   services.blesh.enable = true;
+        # services.blesh.enable = true;
   system.stateVersion = "25.11"; # Match your install version
 }
 

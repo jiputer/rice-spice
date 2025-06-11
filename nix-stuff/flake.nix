@@ -30,8 +30,7 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       modules = [
         ./modules/configuration.nix
-        ./modules/system.nix
-
+        # ./modules/blesh-configuration.nix
         {
           _module.args = {
             ags = ags.packages.${system}.default;

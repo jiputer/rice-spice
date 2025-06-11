@@ -82,7 +82,10 @@
     tesseract
     tmux
     uwsm 
-  ];
+  
+    # battery
+    tlp
+];
 
  # programs.bash.interactiveShellInit = ''
  #   if [[ -f "${pkgs.blesh}/share/blesh/ble.sh" ]]; then

@@ -4,7 +4,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];       
     
   imports = [
-    
+    ./graphics.nix
+    ./power-management.nix
     ./hardware-configuration.nix
     #./modules/home-manager.nix
     ./system.nix

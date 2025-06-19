@@ -26,7 +26,7 @@
     # Enable PRIME offloading (AMD renders by default, NVIDIA on-demand)
     prime = {
       offload.enable = true;
-      sync.enable = true;
+      # sync.enable = true;
   
       # Get these from `lspci`
       nvidiaBusId = "PCI:1:0:0";

@@ -4,8 +4,8 @@
 
 #
 #  # Enable X11
-#  services.xserver.enable = true;
-#  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
 #
 #  # Nvidia settings
 #  hardware.nvidia = {
@@ -17,15 +17,12 @@
 #
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
-
-  # Use the proprietary NVIDIA driver
-  services.xserver.videoDrivers = [ "nvidia" ];
-  
+ 
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
     nvidiaSettings = true;
-  
+    open = true;
     # Enable PRIME offloading (AMD renders by default, NVIDIA on-demand)
     prime = {
       offload.enable = true;

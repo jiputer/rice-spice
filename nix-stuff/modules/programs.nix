@@ -87,10 +87,5 @@
     tlp
 ];
 
- # programs.bash.interactiveShellInit = ''
- #   if [[ -f "${pkgs.blesh}/share/blesh/ble.sh" ]]; then
- #     source "${pkgs.blesh}/share/blesh/ble.sh" --noattach
- #   fi
- #  '';
 }
 

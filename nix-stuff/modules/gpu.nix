@@ -33,6 +33,6 @@
       amdgpuBusId = "PCI:4:0:0"; # double check this one
     };
   };
-  hardware.opengl.enable = true;
+        #hardware.opengl.enable = true;
 
 }

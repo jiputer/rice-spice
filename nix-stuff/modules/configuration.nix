@@ -4,7 +4,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];       
     
   imports = [
-    ./display.nix
+    ./gpu.nix
     ./power-management.nix
     ./hardware-configuration.nix
     #./modules/home-manager.nix
@@ -14,11 +14,10 @@
     ./networking.nix
     ./services.nix
     ./programs.nix
-    ./blesh-configuration.nix
+    # ./blesh-configuration.nix
     #<home-manager/nixos>
     #./nvf-configuration.nix
   ];
-        # services.blesh.enable = true;
   system.stateVersion = "25.11"; # Match your install version
 }
 

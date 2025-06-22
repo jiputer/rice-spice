@@ -12,7 +12,7 @@
        statusline.lualine.enable = true;
        telescope.enable = true;
        autocomplete.nvim-cmp.enable = true;
-       extraOptions = {
+       options = {
           number = true;
           cursorline = true;
           relativenumber = false; # or true if you want relative numbers

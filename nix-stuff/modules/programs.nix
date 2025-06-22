@@ -1,4 +1,8 @@
-{ config, pkgs, ags, astal, nvfNeovim, ... }:
+#
+#{ config, pkgs, ags, astal, astalBattery, astalNetwork, astalBluetooth, astalMpris, astalWp, astalTray, astalHyprland, nvfNeovim, ... }:
+{ config, pkgs, nvfNeovim, ... }:
+
+
 
 {
   environment.systemPackages = with pkgs; [
@@ -57,9 +61,19 @@
     nerd-fonts.mononoki
     nerd-fonts.jetbrains-mono
      
+    # gui 
+    gjs    
+                # astal.io
+                #astal.battery
+                #astal.network
+                #astal.bluetooth
+                # astal.mpris
+                #astal.wireplumber
+                #astal.tray
+                #astal.hyprland
+                #ags
+    gobject-introspection
 
-    astal
-    ags
     gdm
     lightdm
     cliphist

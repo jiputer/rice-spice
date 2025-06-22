@@ -10,8 +10,9 @@ declare -A CONFIGS=(
   ["home/waybar"]="~/.config/waybar"
   ["home/fuzzel"]="~/.config/fuzzel"
   ["home/kitty"]="~/.config/kitty"
-  ["home/.bashrc"]="~/.bashrc"
-  ["home/.bash_profile"]="~/.bash_profile"
+  ["home/ags"]="~/.config/ags"
+  #["home/.bashrc"]="~/.bashrc"
+  #["home/.bash_profile"]="~/.bash_profile"
   ["home/starship.toml"]="~/.config/starship.toml"
 )
 

@@ -2,9 +2,10 @@
 $fg-color: #{"@theme_fg_color"};
 $bg-color: #{"@theme_bg_color"};
 
-window.Bar {
+.Bar {
+    background: transparent;
     background-color: transparent;
-    color: transparent;
+    color: $fg-color;
     font-weight: bold;
 
     >centerbox {
@@ -13,9 +14,15 @@ window.Bar {
         margin: 8px;
     }
 
-    button {
-        background: transparent;
-        border-radius: 8px;
-        margin: 2px;
-    }
+}
+
+
+.barRight {
+  margin-right:15px;
+}
+
+.barRight * {
+  margin-right:10px;
+
+
 }

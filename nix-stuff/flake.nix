@@ -27,7 +27,12 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       modules = [
         ./modules/configuration.nix
-        
+        {
+	_module.args = {
+		nvfNeovim = nvfNeovim;
+	};
+	
+	} 
         home-manager.nixosModules.home-manager
         {
            home-manager.useUserPackages = true;
@@ -36,13 +41,7 @@
            home-manager.backupFileExtension = "backup";    
         }
 
-	{
-	_module.args = {
-		nvfNeovim = nvfNeovim;
-
-	};
 	
-	}
       ];
     }; 
 

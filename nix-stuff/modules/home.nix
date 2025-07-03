@@ -41,8 +41,7 @@
     capitaine-cursors
     nerd-fonts.jetbrains-mono
     gnome-themes-extra
-    neovim
-    firefox
+   
     gtk4
     gtk3
   ];

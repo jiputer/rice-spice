@@ -8,6 +8,9 @@ import Wp from "gi://AstalWp"
 import Network from "gi://AstalNetwork"
 import Tray from "gi://AstalTray"
 
+// import a style sheet here 
+
+
 function SysTray() {
     const tray = Tray.get_default()
 
@@ -55,12 +58,20 @@ function AudioSlider() {
 
 function BatteryLevel() {
     const bat = Battery.get_default()
-
+    print(bat.is_present)
+    print(bat.percentage)
     return <box className="Battery"
         visible={bind(bat, "isPresent")}>
-        <icon icon={bind(bat, "batteryIconName")} />
+       <icon icon={
+        bat.isCharging
+        ? "battery-charging-symbolic"
+        : bat.percentage > 0.80
+            ? "battery-full-symbolic"
+            : bat.percentage > 0.40
+                ? "battery-good-symbolic"
+                : "battery-caution-symbolic"} />
         <label label={bind(bat, "percentage").as(p =>
-            `${Math.floor(p * 100)} %`
+            `${Math.floor(p * 100)} % `
         )} />
     </box>
 }
@@ -122,7 +133,7 @@ function FocusedClient() {
     </box>
 }
 
-function Time({ format = "%H:%M - %A %e." }) {
+function Time({ format = " %H:%M" }) {
     const time = Variable<string>("").poll(1000, () =>
         GLib.DateTime.new_now_local().format(format)!)
 
@@ -131,6 +142,11 @@ function Time({ format = "%H:%M - %A %e." }) {
         onDestroy={() => time.drop()}
         label={time()}
     />
+}
+
+function Menu(){
+
+        return <box />
 }
 
 export default function Bar(monitor: Gdk.Monitor) {
@@ -143,16 +159,17 @@ export default function Bar(monitor: Gdk.Monitor) {
         anchor={TOP | LEFT | RIGHT}>
         <centerbox>
             <box hexpand halign={Gtk.Align.START}>
+                <Menu />
                 <Workspaces />
-                <FocusedClient />
+                
             </box>
             <box>
                 <Media />
             </box>
-            <box hexpand halign={Gtk.Align.END} >
-                <SysTray />
+            <box className="barRight" hexpand halign={Gtk.Align.END} >
+                
                 <Wifi />
-                <AudioSlider />
+                <AudioSlider />               
                 <BatteryLevel />
                 <Time />
             </box>

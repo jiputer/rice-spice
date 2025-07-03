@@ -21,7 +21,8 @@
     jq
     brightnessctl
     nwg-look
-    
+    home-manager
+
     python27
     python310
     
@@ -29,8 +30,7 @@
     neovim
     nvfNeovim
 
-    capitaine-cursors
-    #bash-completion
+    acpi   
     fzf
     zoxide
     navi
@@ -57,22 +57,34 @@
     ffmpeg
     spotify    
     cava
-    
+     
+    # themes, fonts
     nerd-fonts.mononoki
     nerd-fonts.jetbrains-mono
-     
-    # gui 
-    gjs    
-                # astal.io
-                #astal.battery
-                #astal.network
-                #astal.bluetooth
-                # astal.mpris
-                #astal.wireplumber
-                #astal.tray
-                #astal.hyprland
-                #ags
+    papirus-icon-theme 
+    capitaine-cursors
+    noto-fonts-emoji
+    
+
+    # gui
+    gtk3
+    gtk4
+    gjs
+    wrapGAppsHook
     gobject-introspection
+    astal.astal4
+    astal.astal3
+    astal.io
+    astal.battery
+    astal.network
+    astal.bluetooth
+    astal.mpris
+    astal.wireplumber
+    # astal.tray #has an error in building 
+    astal.hyprland
+    ags
+    glib 
+    upower
 
     gdm
     lightdm
@@ -88,18 +100,14 @@
     hyprsunset
     imagemagick
     libnotify
-    noto-fonts-emoji
-    #nvtop
     playerctl
     swappy
-    #swww
     tesseract
     tmux
-    uwsm 
+    uwsm
   
-    # battery
+    # battery management
     tlp
 ];
-
 }
 
